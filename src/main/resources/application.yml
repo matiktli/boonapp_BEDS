@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/boondb
+    password: password
+    username: boondb_admin
+    driver-class-name: com.mysql.jdbc.Driver
+  flyway:
+    user: boondb_admin
+    password: password
+
+server:
+  port: 5000
