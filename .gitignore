@@ -66,5 +66,5 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 boonapp.iml
-.gradle
-.idea
+.gradle/*
+.idea/*
