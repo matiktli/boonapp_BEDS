@@ -24,11 +24,11 @@ public class Location {
 
     //-90 to 90
     @Column(name = "lat", nullable = false)
-    private Long lat;
+    private Double lat;
 
     //-180 to 180
     @Column(name = "lng", nullable = false)
-    private Long lng;
+    private Double lng;
 
     @Column(name = "name")
     private String name;
