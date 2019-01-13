@@ -25,6 +25,9 @@ public class Token {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "value", nullable = false)
+    private String value;
+
     @CreationTimestamp
     @Column(name = "create_date", updatable = false)
     private Timestamp createDate;
