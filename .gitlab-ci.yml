@@ -3,7 +3,7 @@ image: java:8-jdk
 stages:
 - build
 - test
-- deploy
+#- deploy
 
 before_script:
 #  - echo `pwd` # debug
