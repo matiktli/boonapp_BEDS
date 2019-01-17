@@ -24,6 +24,10 @@ public class LocationUtils {
         return loc -> calculateDistanceBetweenPoints(loc.getLat(), loc.getLng(), xLat, xLng) <= distance;
     }
 
+    public static Predicate<Location> isInArea(Location loc2, Double distance) {
+        return loc -> calculateDistanceBetweenPoints(loc.getLat(), loc.getLng(), loc2.getLat(), loc2.getLng()) <= distance;
+    }
+
     /**
      * Returns distance between two points on Earth sphere
      * @param latOne -> point one latitude
@@ -54,6 +58,7 @@ public class LocationUtils {
 
     public static List<Location> sortByDistanceFromPoint(List<Location> locations, double pointLat, double pointLng, double distance) {
         return locations.stream()
+                .filter(loc -> calculateDistanceBetweenPoints(pointLat, pointLng, loc.getLat(), loc.getLng()) <= distance)
                 .sorted( (loc1, loc2) -> {
                     Double locOneDistance = LocationUtils.calculateDistanceBetweenPoints(pointLat, pointLng, loc1.getLat(), loc1.getLng());
                     Double locTwoDistance = LocationUtils.calculateDistanceBetweenPoints(pointLat, pointLng, loc2.getLat(), loc2.getLng());
