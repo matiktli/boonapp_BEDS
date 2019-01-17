@@ -15,6 +15,7 @@ import java.util.Set;
 public class Help {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "help_id", updatable = false, nullable = false)
     private Long id;
 

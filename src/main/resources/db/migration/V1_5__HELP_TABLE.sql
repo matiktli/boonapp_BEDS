@@ -1,5 +1,5 @@
 create table `help` (
-  help_id int primary key,
+  help_id int primary key AUTO_INCREMENT NOT NULL,
   needy_id int not null,
   description varchar(500) null,
   file_id int not null,

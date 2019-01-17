@@ -15,6 +15,7 @@ import java.util.Set;
 public class Needy {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "needy_id", updatable = false, nullable = false)
     private Long id;
 
@@ -25,7 +26,7 @@ public class Needy {
     @Enumerated(value = EnumType.STRING)
     private NeedyType type;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id", referencedColumnName = "location_id")
     private Location location;
 
@@ -37,11 +38,11 @@ public class Needy {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(
             name = "needy_to_user",
-            joinColumns = { @JoinColumn(name = "needy_id", referencedColumnName = "needy_id") },
-            inverseJoinColumns = { @JoinColumn(name = "user_id") }
+            joinColumns = {@JoinColumn(name = "needy_id", referencedColumnName = "needy_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
     private Set<User> attachedUsers = new HashSet<>();
 

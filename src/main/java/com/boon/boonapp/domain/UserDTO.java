@@ -1,6 +1,5 @@
 package com.boon.boonapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.validation.constraints.Email;
@@ -31,7 +30,6 @@ public class UserDTO implements BaseDTO {
     @Size(min = 1, max = 255, message = "User Last Name must be between {min} and {max} characters", groups = CreateUpdateValidationGroup.class)
     private String lastName;
 
-    @JsonIgnore
     @NotNull(message = "User Password must be present on create", groups = {CreateValidationGroup.class, LoginValidationGroup.class})
     @Null(message = "User Password must NOT be present on update", groups = {UpdateValidationGroup.class})
     @Size(min = 1, max = 255, message = "User Password must be between {min} and {max} characters", groups = {CreateValidationGroup.class, LoginValidationGroup.class})

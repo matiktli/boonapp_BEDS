@@ -1,10 +1,8 @@
 package com.boon.boonapp.controller;
 
 import com.boon.boonapp.domain.*;
-import com.boon.boonapp.model.Location;
-import com.boon.boonapp.model.Needy;
-import com.boon.boonapp.model.NeedyType;
-import com.boon.boonapp.model.User;
+import com.boon.boonapp.model.*;
+import com.boon.boonapp.security.SecurityService;
 import com.boon.boonapp.service.*;
 import com.boon.boonapp.transformer.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +24,7 @@ public class BoonBaseController implements BoonBaseService {
     private final TokenService tokenService;
     private final UserService userService;
     private final HelpService helpService;
+    private final SecurityService securityService;
 
     private final NeedyTransformer needyTransformer;
     private final LocationTransformer locationTransformer;
@@ -35,14 +34,16 @@ public class BoonBaseController implements BoonBaseService {
 
     @Autowired
     public BoonBaseController(LocationService locationService, NeedyService needyService, TokenService tokenService,
-                              UserService userService, HelpService helpService, NeedyTransformer needyTransformer,
-                              LocationTransformer locationTransformer, UserTransformer userTransformer,
-                              TokenTransformer tokenTransformer, HelpTransformer helpTransformer) {
+                              UserService userService, HelpService helpService, SecurityService securityService,
+                              NeedyTransformer needyTransformer, LocationTransformer locationTransformer,
+                              UserTransformer userTransformer, TokenTransformer tokenTransformer,
+                              HelpTransformer helpTransformer) {
         this.locationService = locationService;
         this.needyService = needyService;
         this.tokenService = tokenService;
         this.userService = userService;
         this.helpService = helpService;
+        this.securityService = securityService;
         this.needyTransformer = needyTransformer;
         this.locationTransformer = locationTransformer;
         this.userTransformer = userTransformer;
@@ -58,12 +59,16 @@ public class BoonBaseController implements BoonBaseService {
 
     @Override
     public ResponseEntity<TokenDTO> register(@Validated(value = BaseDTO.CreateValidationGroup.class) @RequestBody UserDTO userDTO) {
-        return null;
+        User user = userTransformer.toEntity(userDTO);
+        Token token = securityService.register(user);
+        return ResponseEntity.ok(tokenTransformer.toDto(token));
     }
 
     @Override
     public ResponseEntity<TokenDTO> login(@Validated(value = UserDTO.LoginValidationGroup.class) @RequestBody UserDTO userDTO) {
-        return null;
+        User user = userTransformer.toEntity(userDTO);
+        Token token = securityService.login(user);
+        return ResponseEntity.ok(tokenTransformer.toDto(token));
     }
 
     @Override
@@ -103,6 +108,8 @@ public class BoonBaseController implements BoonBaseService {
 
     @Override
     public ResponseEntity<HelpDTO> createHelp(@Validated(value = BaseDTO.CreateValidationGroup.class) @RequestBody HelpDTO helpDTO) {
-        return null;
+        Help help = helpTransformer.toEntity(helpDTO);
+        //help = helpService.createNewHelp();
+        return ResponseEntity.ok(helpTransformer.toDto(help));
     }
 }

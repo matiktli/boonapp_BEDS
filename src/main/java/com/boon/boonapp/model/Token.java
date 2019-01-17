@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 public class Token {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "token_id", updatable = false, nullable = false)
     private Long id;
 

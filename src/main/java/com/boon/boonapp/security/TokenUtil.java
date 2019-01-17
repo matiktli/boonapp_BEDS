@@ -6,11 +6,11 @@ import net.bytebuddy.utility.RandomString;
 @UtilityClass
 public class TokenUtil {
 
-    private static final Integer TOKEN_LENGTH = 10;
+    private static final Integer TOKEN_LENGTH = 30;
 
     public static String generateToken() {
-        //we need smh better dude
-        return RandomString.make(RandomString.DEFAULT_LENGTH);
+        String token = RandomString.make(TOKEN_LENGTH);
+        return token;
     }
 
     public static Boolean isValidTokenFormat(String token) {

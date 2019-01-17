@@ -1,5 +1,5 @@
 create table `needy` (
-  needy_id int primary key,
+  needy_id int primary key AUTO_INCREMENT NOT NULL,
   name varchar(255) not null,
   type varchar(255) not null,
   location_id int not null,

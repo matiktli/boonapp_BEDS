@@ -2,6 +2,7 @@ package com.boon.boonapp.service;
 
 import com.boon.boonapp.dao.UserRepository;
 import com.boon.boonapp.exception.UserNotFoundException;
+import com.boon.boonapp.model.Location;
 import com.boon.boonapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,15 +16,17 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private LocationService locationService;
+
     public User getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
     }
 
     public User createNewUser(User user) {
-        if (user.getId() != null) {
-            throw new IllegalArgumentException("User Id must not be present on create");
-        }
+        Location loc = locationService.save(user.getLocation());
+        user.setLocation(loc);
         return save(user);
     }
 

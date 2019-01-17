@@ -35,9 +35,6 @@ public class NeedyService {
     }
 
     public Needy createNewNeedy(Needy needy, User creator) {
-        if (needy.getId() != null) {
-            throw new IllegalArgumentException("Needy Id must not be present on create");
-        }
         if (needy.getAttachedUsers() == null) {
             needy.setAttachedUsers(Sets.newHashSet());
         }
@@ -45,6 +42,8 @@ public class NeedyService {
         if (needy.getAttachedUsers().stream().noneMatch(user -> user.getEmail().equals(creator.getEmail()))) {
             needy.getAttachedUsers().add(creator);
         }
+        Location loc = locationService.save(needy.getLocation());
+        needy.setLocation(loc);
         return save(needy);
     }
 
