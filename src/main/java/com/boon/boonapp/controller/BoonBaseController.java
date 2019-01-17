@@ -1,6 +1,7 @@
 package com.boon.boonapp.controller;
 
 import com.boon.boonapp.domain.*;
+import com.boon.boonapp.model.NeedyType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -10,6 +11,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 import static com.boon.boonapp.controller.BoonServiceConstants.DEFAULT_PAGE_SIZE;
 
@@ -37,10 +40,11 @@ public class BoonBaseController implements BoonBaseService {
     }
 
     @Override
-    public ResponseEntity<Page<NeedyDTO>> getAllNeedyInArea(@RequestParam(name = "lat", required = false) Double lat,
-                                                            @RequestParam(name = "lng", required = false) Double lng,
-                                                            @RequestParam(name = "distance", required = false) Double distance,
-                                                            @PageableDefault(size = 50) Pageable pageable) {
+    public ResponseEntity<List<NeedyDTO>> getAllNeedyInArea(@RequestParam(name = "lat", required = false) Double lat,
+                                                     @RequestParam(name = "lng", required = false) Double lng,
+                                                     @RequestParam(name = "distance", required = false) Double distance,
+                                                     @RequestParam(name = "type", required = false) NeedyType needyType,
+                                                     @RequestParam(name = "count", required = false, defaultValue = "20") Integer count) {
         return null;
     }
 
@@ -55,7 +59,7 @@ public class BoonBaseController implements BoonBaseService {
     }
 
     @Override
-    public ResponseEntity<Page<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Integer userId,
+    public ResponseEntity<List<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Integer userId,
                                                                     @RequestParam(name = "needyId", required = false) Integer needyId) {
         return null;
     }
