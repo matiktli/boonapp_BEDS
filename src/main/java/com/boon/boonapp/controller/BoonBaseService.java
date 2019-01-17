@@ -18,7 +18,7 @@ public interface BoonBaseService {
     // * USER ENDPOINTS *
 
     @GetMapping(value = USER_WITH_ID_URL)
-    ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Integer userId);
+    ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Long userId);
 
     @PostMapping(value = REGISTER_URL)
     ResponseEntity<TokenDTO> register(@Validated @RequestBody UserDTO userDTO);
@@ -28,7 +28,7 @@ public interface BoonBaseService {
 
     // * NEEDY ENDPOINTS *
     @GetMapping(value = NEEDY_WITH_ID_URL)
-    ResponseEntity<NeedyDTO> getNeedyById(@PathVariable("needyId") Integer needyId);
+    ResponseEntity<NeedyDTO> getNeedyById(@PathVariable("needyId") Long needyId);
 
     @GetMapping(value = NEEDY_URL)
     ResponseEntity<List<NeedyDTO>> getAllNeedyInArea(@RequestParam(name = "lat", required = false) Double lat,
@@ -42,11 +42,11 @@ public interface BoonBaseService {
 
     // * HELP ENDPOINTS *
     @GetMapping(value = HELP_WITH_ID_URL)
-    ResponseEntity<HelpDTO> getHelpById(@PathVariable("helpId") Integer helpId);
+    ResponseEntity<HelpDTO> getHelpById(@PathVariable("helpId") Long helpId);
 
     @GetMapping(value = HELP_URL)
-    ResponseEntity<List<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Integer userId,
-                                                             @RequestParam(name = "needyId", required = false) Integer needyId);
+    ResponseEntity<List<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Long userId,
+                                                             @RequestParam(name = "needyId", required = false) Long needyId);
 
     @PostMapping(value = HELP_URL)
     ResponseEntity<HelpDTO> createHelp(@Validated @RequestBody HelpDTO helpDTO);

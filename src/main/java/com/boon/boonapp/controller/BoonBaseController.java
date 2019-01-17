@@ -1,10 +1,13 @@
 package com.boon.boonapp.controller;
 
 import com.boon.boonapp.domain.*;
+import com.boon.boonapp.model.Location;
+import com.boon.boonapp.model.Needy;
 import com.boon.boonapp.model.NeedyType;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import com.boon.boonapp.model.User;
+import com.boon.boonapp.service.*;
+import com.boon.boonapp.transformer.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -13,15 +16,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-
-import static com.boon.boonapp.controller.BoonServiceConstants.DEFAULT_PAGE_SIZE;
+import java.util.stream.Collectors;
 
 @Controller
 public class BoonBaseController implements BoonBaseService {
 
+    private final LocationService locationService;
+    private final NeedyService needyService;
+    private final TokenService tokenService;
+    private final UserService userService;
+    private final HelpService helpService;
+
+    private final NeedyTransformer needyTransformer;
+    private final LocationTransformer locationTransformer;
+    private final UserTransformer userTransformer;
+    private final TokenTransformer tokenTransformer;
+    private final HelpTransformer helpTransformer;
+
+    @Autowired
+    public BoonBaseController(LocationService locationService, NeedyService needyService, TokenService tokenService,
+                              UserService userService, HelpService helpService, NeedyTransformer needyTransformer,
+                              LocationTransformer locationTransformer, UserTransformer userTransformer,
+                              TokenTransformer tokenTransformer, HelpTransformer helpTransformer) {
+        this.locationService = locationService;
+        this.needyService = needyService;
+        this.tokenService = tokenService;
+        this.userService = userService;
+        this.helpService = helpService;
+        this.needyTransformer = needyTransformer;
+        this.locationTransformer = locationTransformer;
+        this.userTransformer = userTransformer;
+        this.tokenTransformer = tokenTransformer;
+        this.helpTransformer = helpTransformer;
+    }
+
     @Override
-    public ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Integer userId) {
-        return null;
+    public ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Long userId) {
+        User user = userService.getUserById(userId);
+        return ResponseEntity.ok(userTransformer.toDto(user));
     }
 
     @Override
@@ -35,32 +67,37 @@ public class BoonBaseController implements BoonBaseService {
     }
 
     @Override
-    public ResponseEntity<NeedyDTO> getNeedyById(@PathVariable("needyId") Integer needyId) {
-        return null;
+    public ResponseEntity<NeedyDTO> getNeedyById(@PathVariable("needyId") Long needyId) {
+        Needy needy = needyService.findNeedyById(needyId);
+        return ResponseEntity.ok(needyTransformer.toDto(needy));
     }
 
     @Override
     public ResponseEntity<List<NeedyDTO>> getAllNeedyInArea(@RequestParam(name = "lat", required = false) Double lat,
-                                                     @RequestParam(name = "lng", required = false) Double lng,
-                                                     @RequestParam(name = "distance", required = false) Double distance,
-                                                     @RequestParam(name = "type", required = false) NeedyType needyType,
-                                                     @RequestParam(name = "count", required = false, defaultValue = "20") Integer count) {
-        return null;
+                                                            @RequestParam(name = "lng", required = false) Double lng,
+                                                            @RequestParam(name = "distance", required = false) Double distance,
+                                                            @RequestParam(name = "type", required = false) NeedyType needyType,
+                                                            @RequestParam(name = "count", required = false, defaultValue = "20") Integer count) {
+        List<Needy> foundNeedies = needyService.getAllNeediesInAreaAndType(Location.builder().build(), distance, needyType, count);
+        List<NeedyDTO> result = foundNeedies.stream().map(needyTransformer::toDto).collect(Collectors.toList());
+        return ResponseEntity.ok(result);
     }
 
     @Override
     public ResponseEntity<NeedyDTO> createNeedy(@Validated(value = BaseDTO.CreateValidationGroup.class) @RequestBody NeedyDTO needyDTO) {
+        Needy needy = needyTransformer.toEntity(needyDTO);
+        needy = needyService.createNewNeedy(needy, User.builder().password("WYPIEDALAC").build()); //TODO
+        return ResponseEntity.ok(needyTransformer.toDto(needy));
+    }
+
+    @Override
+    public ResponseEntity<HelpDTO> getHelpById(@PathVariable("helpId") Long helpId) {
         return null;
     }
 
     @Override
-    public ResponseEntity<HelpDTO> getHelpById(@PathVariable("helpId") Integer helpId) {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<List<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Integer userId,
-                                                                    @RequestParam(name = "needyId", required = false) Integer needyId) {
+    public ResponseEntity<List<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Long userId,
+                                                                    @RequestParam(name = "needyId", required = false) Long needyId) {
         return null;
     }
 
