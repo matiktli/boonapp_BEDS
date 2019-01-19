@@ -9,6 +9,10 @@ import com.boon.boonapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
+import static com.boon.boonapp.controller.BoonServiceConstants.TOKEN_DEFAULT_DURATION_HOURS;
+
 @Service
 public class SecurityService {
 
@@ -52,8 +56,13 @@ public class SecurityService {
 
     public void validateTokenForUser(String tokenHeader, User user) {
         Token token = getTokenFromDb(tokenHeader);
+        StringBuilder tokenAlaHashed = new StringBuilder();
+        tokenHeader.chars().mapToObj(c -> (c%2 == 0) ? ((char) c) : "*").forEach(tokenAlaHashed::append);
+        if (!tokenService.isTokenActive(token, TOKEN_DEFAULT_DURATION_HOURS)) {
+            throw new AuthorizationException(String.format("Token [%s] expired.", tokenAlaHashed.toString()));
+        }
         if (!token.getUser().getEmail().equals(user.getEmail())) {
-            throw new AuthorizationException(String.format("Token [%s] does not belongs to User %s", tokenHeader, user));
+            throw new AuthorizationException(String.format("Token [%s] does not belongs to User %s", tokenAlaHashed.toString(), user));
         }
     }
 }

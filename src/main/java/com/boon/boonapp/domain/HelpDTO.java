@@ -29,6 +29,6 @@ public class HelpDTO implements BaseDTO {
     @Size(max = 500, message = "Help Description must be no longer than {max} characters", groups = CreateUpdateValidationGroup.class)
     private String description;
 
-    @NotNull(message = "Help File must be present on create/update", groups = CreateUpdateValidationGroup.class)
+    //@NotNull(message = "Help File must be present on create/update", groups = CreateUpdateValidationGroup.class)
     private FileMetadataDTO file;
 }

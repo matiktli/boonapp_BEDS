@@ -21,8 +21,11 @@ public class TokenService {
     private TokenRepository tokenRepository;
 
     public Boolean isMostRecentTokenByUserValid(Long userId, Integer durationHours) {
-        return findMostRecentTokenByUserId(userId).getCreateDate()
-                .after(Timestamp.from(Instant.now().minusSeconds(durationHours * 3600)));
+        return isTokenActive(findMostRecentTokenByUserId(userId), durationHours);
+    }
+
+    public Boolean isTokenActive(Token token, Integer duration) {
+        return token.getCreateDate().after(Timestamp.from(Instant.now().minusSeconds(duration * 3600)));
     }
 
     public Token findMostRecentTokenByUserId(Long userId) {

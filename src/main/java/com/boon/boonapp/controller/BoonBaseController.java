@@ -54,6 +54,7 @@ public class BoonBaseController implements BoonBaseService {
     @Override
     public ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Long userId) {
         User user = userService.getUserById(userId);
+        //TODO clear psw if not matching auth
         return ResponseEntity.ok(userTransformer.toDto(user));
     }
 

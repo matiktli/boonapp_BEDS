@@ -1,14 +1,19 @@
 package com.boon.boonapp.controller;
 
 import com.boon.boonapp.domain.BaseDTO;
+import com.google.common.collect.Lists;
 import lombok.experimental.UtilityClass;
+
+import java.util.List;
 
 @UtilityClass
 public class BoonServiceConstants {
 
     public static final Integer DEFAULT_PAGE_SIZE = 50;
 
-    public static final String TOKEN_HEADER_NAME = "X-TOKEN";
+    public static final Integer TOKEN_LENGTH = 30;
+    public static final String TOKEN_HEADER_NAME = "TOKEN";
+    public static final Integer TOKEN_DEFAULT_DURATION_HOURS = 3;
 
     // * URLs *
     public static final String BASE_URL = "/boon";
@@ -24,5 +29,8 @@ public class BoonServiceConstants {
 
     public static final String HELP_URL = BASE_URL + "/help";
     public static final String HELP_WITH_ID_URL = NEEDY_URL + "/{helpId}";
+
+    public static final List<String> PATHS_OUT_OF_SEC = Lists.newArrayList(LOGIN_URL, LOGOUT_URL, REGISTER_URL, "/swagger-ui.html", "/v2/**", "/api/**", "/favicon.ico", "/swagger**");
+
 
 }
