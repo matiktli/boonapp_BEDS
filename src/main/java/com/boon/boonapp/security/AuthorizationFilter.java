@@ -20,8 +20,6 @@ import static com.boon.boonapp.controller.BoonServiceConstants.TOKEN_HEADER_NAME
 
 public class AuthorizationFilter extends OncePerRequestFilter {
 
-    //TODO this one wont work until security impl, but do we want security xd
-
     private final SecurityService securityService;
 
     public AuthorizationFilter(SecurityService securityService) {
@@ -38,8 +36,6 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         if (authHeader == null || !authHeader.isEmpty()) {
             throw new AuthorizationException("Missing authorization token in header!");
         }
-
-
     }
 
     @Override

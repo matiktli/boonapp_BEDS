@@ -2,6 +2,7 @@ package com.boon.boonapp.domain;
 
 import lombok.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
@@ -22,7 +23,7 @@ public class HelpDTO implements BaseDTO {
     private NeedyDTO needy;
 
     @EqualsAndHashCode.Exclude
-    @Size(min = 1, message = "Help Helpers must contain at least one User on create/update", groups = CreateUpdateValidationGroup.class)
+    //@Size(min = 1, message = "Help Helpers must contain at least one User on create/update", groups = CreateUpdateValidationGroup.class)
     //@Valid should be?
     private Set<UserDTO> helpers;
 
@@ -31,4 +32,7 @@ public class HelpDTO implements BaseDTO {
 
     //@NotNull(message = "Help File must be present on create/update", groups = CreateUpdateValidationGroup.class)
     private FileMetadataDTO file;
+
+    public interface CreateHelpValidationGroup {
+    }
 }

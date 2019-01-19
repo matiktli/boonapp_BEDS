@@ -57,12 +57,16 @@ public class SecurityService {
     public void validateTokenForUser(String tokenHeader, User user) {
         Token token = getTokenFromDb(tokenHeader);
         StringBuilder tokenAlaHashed = new StringBuilder();
-        tokenHeader.chars().mapToObj(c -> (c%2 == 0) ? ((char) c) : "*").forEach(tokenAlaHashed::append);
+        tokenHeader.chars().mapToObj(c -> (c%2 == 0) ? "*" : ((char) c)).forEach(tokenAlaHashed::append);
         if (!tokenService.isTokenActive(token, TOKEN_DEFAULT_DURATION_HOURS)) {
             throw new AuthorizationException(String.format("Token [%s] expired.", tokenAlaHashed.toString()));
         }
         if (!token.getUser().getEmail().equals(user.getEmail())) {
             throw new AuthorizationException(String.format("Token [%s] does not belongs to User %s", tokenAlaHashed.toString(), user));
+        }
+        Token tokenRecent = tokenService.findMostRecentTokenByUserId(user.getId());
+        if (!token.equals(tokenRecent)) {
+            throw new AuthorizationException(String.format("Token [%s] is expired.", tokenAlaHashed));
         }
     }
 }

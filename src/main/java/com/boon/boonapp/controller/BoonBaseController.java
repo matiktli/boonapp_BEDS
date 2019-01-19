@@ -2,9 +2,11 @@ package com.boon.boonapp.controller;
 
 import com.boon.boonapp.domain.*;
 import com.boon.boonapp.model.*;
+import com.boon.boonapp.security.AuthorizationUtil;
 import com.boon.boonapp.security.SecurityService;
 import com.boon.boonapp.service.*;
 import com.boon.boonapp.transformer.*;
+import com.google.common.collect.Sets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -54,7 +56,10 @@ public class BoonBaseController implements BoonBaseService {
     @Override
     public ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Long userId) {
         User user = userService.getUserById(userId);
-        //TODO clear psw if not matching auth
+        User currentUser = AuthorizationUtil.getCurrentUser();
+        if (!user.getEmail().equals(currentUser.getEmail())) {
+            user.setPassword(user.getPassword().replaceAll(".", "*"));
+        }
         return ResponseEntity.ok(userTransformer.toDto(user));
     }
 
@@ -92,25 +97,29 @@ public class BoonBaseController implements BoonBaseService {
     @Override
     public ResponseEntity<NeedyDTO> createNeedy(@Validated(value = BaseDTO.CreateValidationGroup.class) @RequestBody NeedyDTO needyDTO) {
         Needy needy = needyTransformer.toEntity(needyDTO);
-        needy = needyService.createNewNeedy(needy, User.builder().password("WYPIEDALAC").build()); //TODO
+        needy = needyService.createNewNeedy(needy, AuthorizationUtil.getCurrentUser());
         return ResponseEntity.ok(needyTransformer.toDto(needy));
     }
 
     @Override
     public ResponseEntity<HelpDTO> getHelpById(@PathVariable("helpId") Long helpId) {
-        return null;
+        Help help = helpService.getHelpById(helpId);
+        HelpDTO helpDTO = helpTransformer.toDto(help);
+        return ResponseEntity.ok(helpDTO);
     }
 
     @Override
     public ResponseEntity<List<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Long userId,
                                                                     @RequestParam(name = "needyId", required = false) Long needyId) {
-        return null;
+        List<Help> helps = helpService.getHelpsByNeedyAndUserId(needyId, userId);
+        List<HelpDTO> helpDTOs = helps.stream().map(helpTransformer::toDto).collect(Collectors.toList());
+        return ResponseEntity.ok(helpDTOs);
     }
 
     @Override
     public ResponseEntity<HelpDTO> createHelp(@Validated(value = BaseDTO.CreateValidationGroup.class) @RequestBody HelpDTO helpDTO) {
         Help help = helpTransformer.toEntity(helpDTO);
-        //help = helpService.createNewHelp();
+        help = helpService.createNewHelp(help, AuthorizationUtil.getCurrentUser());
         return ResponseEntity.ok(helpTransformer.toDto(help));
     }
 }
