@@ -1,5 +1,5 @@
 create table `user` (
-  user_id int primary key,
+  user_id int primary key  AUTO_INCREMENT NOT NULL,
   first_name varchar(255) null,
   last_name varchar(255) null,
   email varchar(255) not null unique,

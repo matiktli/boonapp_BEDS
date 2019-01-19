@@ -58,7 +58,7 @@ public class LocationUtilsTest {
 
     @Test
     public void test_getAllSortByDistanceFromPoint() {
-        List<Location> result = LocationUtils.getTopSortByDistanceFromPoint(testLocations, TEST_POINT.getLat(), TEST_POINT.getLng(), 0.0, null);
+        List<Location> result = LocationUtils.getTopSortByDistanceFromPoint(testLocations, TEST_POINT.getLat(), TEST_POINT.getLng(), null, null);
         softly.assertThat(result).isNotNull();
         softly.assertThat(result.size()).isEqualTo(testLocations.size());
         softly.assertThat(result.get(0).getName()).isEqualTo("6.0");
@@ -68,12 +68,10 @@ public class LocationUtilsTest {
 
     @Test
     public void test_getTopThreeSortByDistanceFromPoint() {
-        List<Location> result = LocationUtils.getTopSortByDistanceFromPoint(testLocations, TEST_POINT.getLat(), TEST_POINT.getLng(), 0.0, 3);
+        List<Location> result = LocationUtils.getTopSortByDistanceFromPoint(testLocations, TEST_POINT.getLat(), TEST_POINT.getLng(), 10.0, 3);
         softly.assertThat(result).isNotNull();
-        softly.assertThat(result.size()).isEqualTo(3);
+        softly.assertThat(result.size()).isEqualTo(1);
         softly.assertThat(result.get(0).getName()).isEqualTo("6.0");
-        softly.assertThat(result.get(1).getName()).isEqualTo("5557.0");
-        softly.assertThat(result.get(2).getName()).isEqualTo("8265.0");
     }
 
     public void assertAndTestDistanceTwoPoints(Location locOne, Location locTwo, Double expected) {

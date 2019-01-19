@@ -1,9 +1,6 @@
 package com.boon.boonapp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -18,6 +15,7 @@ import java.sql.Timestamp;
 public class Token {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "token_id", updatable = false, nullable = false)
     private Long id;
 

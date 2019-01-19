@@ -1,12 +1,15 @@
 package com.boon.boonapp.controller;
 
-import com.boon.boonapp.domain.*;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import com.boon.boonapp.domain.HelpDTO;
+import com.boon.boonapp.domain.NeedyDTO;
+import com.boon.boonapp.domain.TokenDTO;
+import com.boon.boonapp.domain.UserDTO;
+import com.boon.boonapp.model.NeedyType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.boon.boonapp.controller.BoonServiceConstants.*;
 
@@ -15,7 +18,7 @@ public interface BoonBaseService {
     // * USER ENDPOINTS *
 
     @GetMapping(value = USER_WITH_ID_URL)
-    ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Integer userId);
+    ResponseEntity<UserDTO> getUserById(@PathVariable("userId") Long userId);
 
     @PostMapping(value = REGISTER_URL)
     ResponseEntity<TokenDTO> register(@Validated @RequestBody UserDTO userDTO);
@@ -25,24 +28,25 @@ public interface BoonBaseService {
 
     // * NEEDY ENDPOINTS *
     @GetMapping(value = NEEDY_WITH_ID_URL)
-    ResponseEntity<NeedyDTO> getNeedyById(@PathVariable("needyId") Integer needyId);
+    ResponseEntity<NeedyDTO> getNeedyById(@PathVariable("needyId") Long needyId);
 
     @GetMapping(value = NEEDY_URL)
-    ResponseEntity<Page<NeedyDTO>> getAllNeedyInArea(@RequestParam(name = "lat", required = false) Double lat,
+    ResponseEntity<List<NeedyDTO>> getAllNeedyInArea(@RequestParam(name = "lat", required = false) Double lat,
                                                      @RequestParam(name = "lng", required = false) Double lng,
                                                      @RequestParam(name = "distance", required = false) Double distance,
-                                                     @PageableDefault(size = 50) Pageable pageable);
+                                                     @RequestParam(name = "type", required = false) NeedyType needyType,
+                                                     @RequestParam(name = "count", required = false, defaultValue = "20") Integer count);
 
     @PostMapping(value = NEEDY_URL)
     ResponseEntity<NeedyDTO> createNeedy(@Validated @RequestBody NeedyDTO needyDTO);
 
     // * HELP ENDPOINTS *
     @GetMapping(value = HELP_WITH_ID_URL)
-    ResponseEntity<HelpDTO> getHelpById(@PathVariable("helpId") Integer helpId);
+    ResponseEntity<HelpDTO> getHelpById(@PathVariable("helpId") Long helpId);
 
     @GetMapping(value = HELP_URL)
-    ResponseEntity<Page<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Integer userId,
-                                                             @RequestParam(name = "needyId", required = false) Integer needyId);
+    ResponseEntity<List<HelpDTO>> getAllHelpsForUserAndNeedy(@RequestParam(name = "userId", required = false) Long userId,
+                                                             @RequestParam(name = "needyId", required = false) Long needyId);
 
     @PostMapping(value = HELP_URL)
     ResponseEntity<HelpDTO> createHelp(@Validated @RequestBody HelpDTO helpDTO);

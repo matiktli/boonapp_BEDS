@@ -1,5 +1,5 @@
 create table `file_metadata` (
-  file_id int primary key,
+  file_id int primary key AUTO_INCREMENT NOT NULL,
   name varchar(500) not null,
   path varchar(999) not null,
   active bit default 1,
