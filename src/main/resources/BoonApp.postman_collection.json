@@ -1,0 +1,1018 @@
+{
+	"id": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+	"name": "BoonApp",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"name": "Help",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"order": [
+				"02c29a54-2f20-a62c-3d54-5441baf470f4",
+				"bebd7bc3-fc91-0862-d1b1-dc498635d186",
+				"12f41b9b-f456-35c5-662a-a5848dde91e9"
+			],
+			"owner": "2172622",
+			"folders_order": [],
+			"id": "f14b0672-29ba-6d00-8f70-743b3c0fcfed"
+		},
+		{
+			"name": "Needy",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"order": [
+				"18379b92-d3c2-e0a3-c8e4-1c767ca20472",
+				"38e3ab02-d86b-edd7-561c-23fc0d793c6a",
+				"d3388be6-e22a-eb57-0671-113ca3f48b6b"
+			],
+			"owner": "2172622",
+			"folders_order": [],
+			"id": "d5cf0434-9ba8-3d57-9029-baacf58e43b7"
+		},
+		{
+			"name": "User",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"order": [
+				"e5ff92a5-3c6e-756e-c550-850a0998dd90",
+				"dbb89442-48bc-93eb-47e7-07f0e0ed9290",
+				"71c468d4-051f-321f-3922-ec00a69708d2"
+			],
+			"owner": "2172622",
+			"folders_order": [],
+			"id": "b4b4edce-e3a2-1de0-3082-09f6a71bf10e"
+		}
+	],
+	"folders_order": [
+		"b4b4edce-e3a2-1de0-3082-09f6a71bf10e",
+		"d5cf0434-9ba8-3d57-9029-baacf58e43b7",
+		"f14b0672-29ba-6d00-8f70-743b3c0fcfed"
+	],
+	"timestamp": 1547757296209,
+	"owner": "2172622",
+	"public": false,
+	"requests": [
+		{
+			"id": "02c29a54-2f20-a62c-3d54-5441baf470f4",
+			"headers": "TOKEN: CUz8Ca34nDcVALBEYWeHTsj3QfXdPP\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "TOKEN",
+					"value": "CUz8Ca34nDcVALBEYWeHTsj3QfXdPP",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/help",
+			"folder": "d5cf0434-9ba8-3d57-9029-baacf58e43b7",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547912251122,
+			"name": "Help_Create",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 1579,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 19 Jan 2019 15:31:03 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":1,\"needy\":{\"id\":5,\"name\":\"NeedyFive\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":10,\"lat\":90.0,\"lng\":2.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},\"helpers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}},{\"id\":1,\"email\":\"m.kitlinos@gmail.com\",\"firstName\":\"Mateusz\",\"lastName\":\"Kitlinski\",\"password\":\"1234\",\"location\":{\"id\":1,\"lat\":0.0,\"lng\":0.0,\"name\":\"Center of the world\"}}],\"description\":\"Help hehe\",\"file\":null}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Help_Create",
+					"id": "c1921178-714a-a9fc-92bc-852eeedac134",
+					"request": {
+						"url": "http://localhost:5000/boon/help",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "TOKEN",
+								"value": "Jtgp0VFSoGXnzOnkB2IxOnnroFBKll",
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "TOKEN: Jtgp0VFSoGXnzOnkB2IxOnnroFBKll\nContent-Type: application/json\n",
+						"data": "{\n\t\"needy\": {\n\t\t\"id\": 5\n\t},\n\t\"description\": \"Help hehe\",\n\t\"helpers\": [\n\t\t{\n\t\t\t\"email\": \"m.kitlinos@gmail.com\"\n\t\t}\n\t]\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"needy\": {\n\t\t\"id\": 3\n\t},\n\t\"description\": \"Help hehe xssd\",\n\t\"helpers\": [\n\t\t{\n\t\t\t\"email\": \"m.kitlinos2@gmail.com\"\n\t\t}\n\t]\n}"
+		},
+		{
+			"id": "12f41b9b-f456-35c5-662a-a5848dde91e9",
+			"headers": "TOKEN: CUz8Ca34nDcVALBEYWeHTsj3QfXdPP\n",
+			"headerData": [
+				{
+					"key": "TOKEN",
+					"value": "CUz8Ca34nDcVALBEYWeHTsj3QfXdPP",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/help/2",
+			"folder": "f14b0672-29ba-6d00-8f70-743b3c0fcfed",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547912492791,
+			"name": "Help_GetById",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 78,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 19 Jan 2019 15:40:22 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":3,\"needy\":{\"id\":2,\"name\":\"NeedyTwo\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":7,\"lat\":90.0,\"lng\":-30.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},\"helpers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}],\"description\":\"Help hehe xd\",\"file\":null}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Help_Get",
+					"id": "15f7ff1a-7393-4ac1-8e9d-572f484f9499",
+					"request": "12f41b9b-f456-35c5-662a-a5848dde91e9",
+					"requestObject": {
+						"url": "http://localhost:5000/boon/help?userId=2&needyId=2",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "userId",
+								"value": "2",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "needyId",
+								"value": "2",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [
+							{
+								"key": "TOKEN",
+								"value": "CUz8Ca34nDcVALBEYWeHTsj3QfXdPP",
+								"description": "",
+								"enabled": true,
+								"warning": ""
+							}
+						],
+						"headers": "TOKEN: CUz8Ca34nDcVALBEYWeHTsj3QfXdPP\n",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 237,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 19 Jan 2019 15:41:28 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":2,\"needy\":{\"id\":6,\"name\":\"NeedySix\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":11,\"lat\":90.0,\"lng\":3.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},\"helpers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}],\"description\":\"Help hehe\",\"file\":null}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Help_GetById",
+					"id": "a145acbd-33b5-e9a0-b5c8-0a1b1297e4cf",
+					"request": {
+						"url": "http://localhost:5000/boon/help/2",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "TOKEN",
+								"value": "CUz8Ca34nDcVALBEYWeHTsj3QfXdPP",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "TOKEN: CUz8Ca34nDcVALBEYWeHTsj3QfXdPP\n",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		},
+		{
+			"id": "18379b92-d3c2-e0a3-c8e4-1c767ca20472",
+			"headers": "TOKEN: Jtgp0VFSoGXnzOnkB2IxOnnroFBKll\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "TOKEN",
+					"value": "Jtgp0VFSoGXnzOnkB2IxOnnroFBKll",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/needy",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547909648498,
+			"name": "Needy_Create",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"NeedyNine\",\n\t\"type\": \"PRIVATE_PERSON\",\n\t\"location\": {\n\t\t\"name\": \"xxx\",\n\t\t\"lat\": 90,\n\t\t\"lng\": 4.0\n\t},\n\t\"description\": \"xxx\"\n}"
+		},
+		{
+			"id": "38e3ab02-d86b-edd7-561c-23fc0d793c6a",
+			"headers": "TOKEN: Jtgp0VFSoGXnzOnkB2IxOnnroFBKll\n",
+			"headerData": [
+				{
+					"key": "TOKEN",
+					"value": "Jtgp0VFSoGXnzOnkB2IxOnnroFBKll",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/needy/1",
+			"folder": "d5cf0434-9ba8-3d57-9029-baacf58e43b7",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547909384950,
+			"name": "Needy_GetById",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"NeedyOne\",\n\t\"type\": \"PRIVATE_PERSON\",\n\t\"location\": {\n\t\t\"name\": \"NeedyOne Loc\",\n\t\t\"lat\": 90.0,\n\t\t\"lng\": 0.0\n\t},\n\t\"description\": \"NeedyOne Description\"\n}"
+		},
+		{
+			"id": "71c468d4-051f-321f-3922-ec00a69708d2",
+			"headers": "TOKEN: oKEdqj5D3ArsrpNSyGuLA3XURWTb6A\n",
+			"headerData": [
+				{
+					"key": "TOKEN",
+					"value": "oKEdqj5D3ArsrpNSyGuLA3XURWTb6A",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/user/1",
+			"folder": "b4b4edce-e3a2-1de0-3082-09f6a71bf10e",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547905371862,
+			"name": "User_GetById",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"time": 51852,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 17 Jan 2019 21:17:45 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":3,\"user\":{\"id\":1,\"email\":\"m.kitlinos@gmail.com\",\"firstName\":\"Mateusz\",\"lastName\":\"Kitlinski\",\"password\":\"1234\",\"location\":{\"id\":1,\"lat\":0.0,\"lng\":0.0,\"name\":\"Center of the world\"}},\"value\":\"7462XPOsKxw5O9kykkibcdcpsjBnf6\",\"createDate\":\"2019-01-17T21:17:45.519+0000\",\"expiryDate\":null}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "User_Login_example",
+					"id": "7070b002-9cab-7121-c8e4-e6b0bc3ae5c4",
+					"request": "71c468d4-051f-321f-3922-ec00a69708d2",
+					"requestObject": {
+						"url": "http://localhost:5000/boon/user/login",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": ""
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"email\": \"m.kitlinos@gmail.com\",\n\t\"firstName\": \"Mateusz\",\n\t\"lastName\": \"Kitlinski\",\n\t\"password\": \"1234\",\n\t\"location\": {\n\t\t\"lat\": 0.0,\n\t\t\"lng\": 0.0,\n\t\t\"name\": \"Center of the world\"\n\t}\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 246,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 17 Jan 2019 21:19:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":1,\"email\":\"m.kitlinos@gmail.com\",\"firstName\":\"Mateusz\",\"lastName\":\"Kitlinski\",\"password\":\"1234\",\"location\":{\"id\":1,\"lat\":0.0,\"lng\":0.0,\"name\":\"Center of the world\"}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "User_GetById_example",
+					"id": "47fa78c0-8c00-f650-1b84-78438bf90b2a",
+					"request": {
+						"url": "http://localhost:5000/boon/user/1",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "",
+						"method": "GET",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": ""
+		},
+		{
+			"id": "bebd7bc3-fc91-0862-d1b1-dc498635d186",
+			"headers": "TOKEN: CUz8Ca34nDcVALBEYWeHTsj3QfXdPP\n",
+			"headerData": [
+				{
+					"key": "TOKEN",
+					"value": "CUz8Ca34nDcVALBEYWeHTsj3QfXdPP",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/help?userId=2&needyId=2",
+			"folder": "f14b0672-29ba-6d00-8f70-743b3c0fcfed",
+			"queryParams": [
+				{
+					"key": "userId",
+					"value": "2",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "needyId",
+					"value": "2",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"time": 1547912424287,
+			"name": "Help_GetByUserAndNeedy",
+			"description": null,
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 78,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 19 Jan 2019 15:40:22 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":3,\"needy\":{\"id\":2,\"name\":\"NeedyTwo\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":7,\"lat\":90.0,\"lng\":-30.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},\"helpers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}],\"description\":\"Help hehe xd\",\"file\":null}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Help_Get",
+					"id": "309e9b95-9ee2-3e55-0c51-85dc42b9878c",
+					"request": {
+						"url": "http://localhost:5000/boon/help?userId=2&needyId=2",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "userId",
+								"value": "2",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "needyId",
+								"value": "2",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [
+							{
+								"key": "TOKEN",
+								"value": "CUz8Ca34nDcVALBEYWeHTsj3QfXdPP",
+								"description": "",
+								"enabled": true,
+								"warning": ""
+							}
+						],
+						"headers": "TOKEN: CUz8Ca34nDcVALBEYWeHTsj3QfXdPP\n",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			],
+			"auth": null,
+			"events": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"variables": null
+		},
+		{
+			"id": "d3388be6-e22a-eb57-0671-113ca3f48b6b",
+			"headers": "TOKEN: Jtgp0VFSoGXnzOnkB2IxOnnroFBKll\n",
+			"headerData": [
+				{
+					"key": "TOKEN",
+					"value": "Jtgp0VFSoGXnzOnkB2IxOnnroFBKll",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/needy?lat=90&lng=0&distance=10&count=5",
+			"folder": "d5cf0434-9ba8-3d57-9029-baacf58e43b7",
+			"queryParams": [
+				{
+					"key": "lat",
+					"value": "90",
+					"equals": true,
+					"description": "not required; double; -90 to 90",
+					"enabled": true
+				},
+				{
+					"key": "lng",
+					"value": "0",
+					"equals": true,
+					"description": "not required; double; -180 to 180",
+					"enabled": true
+				},
+				{
+					"key": "distance",
+					"value": "10",
+					"equals": true,
+					"description": "not required; double; +",
+					"enabled": true
+				},
+				{
+					"key": "type",
+					"value": "",
+					"equals": false,
+					"description": "not required;  ex = PRIVATE_PERSON, ORGANISATION",
+					"enabled": false
+				},
+				{
+					"key": "count",
+					"value": "5",
+					"equals": true,
+					"description": "not required; default = 20",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547910597120,
+			"name": "Needy_GetInArea",
+			"description": "automatically sorted",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 109,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 19 Jan 2019 15:09:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":1,\"name\":\"NeedyOne\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":6,\"lat\":90.0,\"lng\":0.0,\"name\":\"NeedyOne Loc\"},\"description\":\"NeedyOne Description\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},{\"id\":5,\"name\":\"NeedyFive\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":10,\"lat\":90.0,\"lng\":2.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},{\"id\":6,\"name\":\"NeedySix\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":11,\"lat\":90.0,\"lng\":3.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},{\"id\":7,\"name\":\"NeedySeven\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":12,\"lat\":90.0,\"lng\":4.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]},{\"id\":8,\"name\":\"NeedyEight\",\"type\":\"PRIVATE_PERSON\",\"location\":{\"id\":13,\"lat\":90.0,\"lng\":4.0,\"name\":\"xxx\"},\"description\":\"xxx\",\"notes\":null,\"attachedUsers\":[{\"id\":2,\"email\":\"m.kitlinos2@gmail.com\",\"firstName\":\"Mateusz2\",\"lastName\":\"Kitlinski2\",\"password\":\"12345\",\"location\":{\"id\":2,\"lat\":-20.0,\"lng\":20.0,\"name\":\"Center of the world 2\"}}]}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Needy_GetInArea_SORTED",
+					"id": "ee9d8ad4-7c77-9b40-3eb0-8fa18cbbf78b",
+					"request": {
+						"url": "http://localhost:5000/boon/needy?lat=90&lng=0&distance=10&count=5",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "lat",
+								"value": "90",
+								"equals": true,
+								"description": "not required; double; -90 to 90",
+								"enabled": true
+							},
+							{
+								"key": "lng",
+								"value": "0",
+								"equals": true,
+								"description": "not required; double; -180 to 180",
+								"enabled": true
+							},
+							{
+								"key": "distance",
+								"value": "10",
+								"equals": true,
+								"description": "not required; double; +",
+								"enabled": true
+							},
+							{
+								"key": "type",
+								"value": "",
+								"equals": false,
+								"description": "not required;  ex = PRIVATE_PERSON, ORGANISATION",
+								"enabled": false
+							},
+							{
+								"key": "count",
+								"value": "5",
+								"equals": true,
+								"description": "not required; default = 20",
+								"enabled": true
+							}
+						],
+						"headerData": [
+							{
+								"key": "TOKEN",
+								"value": "Jtgp0VFSoGXnzOnkB2IxOnnroFBKll",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "TOKEN: Jtgp0VFSoGXnzOnkB2IxOnnroFBKll\n",
+						"data": "{\n\t\"name\": \"NeedyOne\",\n\t\"type\": \"PRIVATE_PERSON\",\n\t\"location\": {\n\t\t\"name\": \"NeedyOne Loc\",\n\t\t\"lat\": 90.0,\n\t\t\"lng\": 0.0\n\t},\n\t\"description\": \"NeedyOne Description\"\n}",
+						"method": "GET",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"name\": \"NeedyOne\",\n\t\"type\": \"PRIVATE_PERSON\",\n\t\"location\": {\n\t\t\"name\": \"NeedyOne Loc\",\n\t\t\"lat\": 90.0,\n\t\t\"lng\": 0.0\n\t},\n\t\"description\": \"NeedyOne Description\"\n}"
+		},
+		{
+			"id": "dbb89442-48bc-93eb-47e7-07f0e0ed9290",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/user/register",
+			"folder": "b4b4edce-e3a2-1de0-3082-09f6a71bf10e",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547905422697,
+			"name": "User_Register",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 28695,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 17 Jan 2019 21:14:05 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":2,\"user\":{\"id\":1,\"email\":\"m.kitlinos@gmail.com\",\"firstName\":\"Mateusz\",\"lastName\":\"Kitlinski\",\"password\":\"1234\",\"location\":{\"id\":1,\"lat\":0.0,\"lng\":0.0,\"name\":\"Center of the world\"}},\"value\":\"B2Ax8sSZ\",\"createDate\":\"2019-01-17T21:14:05.805+0000\",\"expiryDate\":null}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "User_Register_example",
+					"id": "bce46cdb-dc57-5df8-4509-fcfcbde45ff4",
+					"request": {
+						"url": "http://localhost:5000/boon/user/register",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"email\": \"m.kitlinos@gmail.com\",\n\t\"firstName\": \"Mateusz\",\n\t\"lastName\": \"Kitlinski\",\n\t\"password\": \"1234\",\n\t\"location\": {\n\t\t\"lat\": 0.0,\n\t\t\"lng\": 0.0,\n\t\t\"name\": \"Center of the world\"\n\t}\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"email\": \"m.kitlinos2@gmail.com\",\n\t\"firstName\": \"Mateusz2\",\n\t\"lastName\": \"Kitlinski2\",\n\t\"password\": \"12345\",\n\t\"location\": {\n\t\t\"lat\": -20.0,\n\t\t\"lng\": 20.0,\n\t\t\"name\": \"Center of the world 2\"\n\t}\n}"
+		},
+		{
+			"id": "e5ff92a5-3c6e-756e-c550-850a0998dd90",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/boon/user/login",
+			"folder": "b4b4edce-e3a2-1de0-3082-09f6a71bf10e",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1547912201154,
+			"name": "User_Login",
+			"description": "",
+			"collectionId": "0285b96b-a8a3-d2cd-9daa-b5708429aa26",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"time": 51852,
+					"headers": [
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Thu, 17 Jan 2019 21:17:45 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "transfer-encoding",
+							"key": "transfer-encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":3,\"user\":{\"id\":1,\"email\":\"m.kitlinos@gmail.com\",\"firstName\":\"Mateusz\",\"lastName\":\"Kitlinski\",\"password\":\"1234\",\"location\":{\"id\":1,\"lat\":0.0,\"lng\":0.0,\"name\":\"Center of the world\"}},\"value\":\"7462XPOsKxw5O9kykkibcdcpsjBnf6\",\"createDate\":\"2019-01-17T21:17:45.519+0000\",\"expiryDate\":null}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "User_Login_example",
+					"id": "3d39cbbb-13b1-7449-48ac-40c0fc6daeb9",
+					"request": {
+						"url": "http://localhost:5000/boon/user/login",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": ""
+							}
+						],
+						"headers": "Content-Type: application/json\n",
+						"data": "{\n\t\"email\": \"m.kitlinos@gmail.com\",\n\t\"firstName\": \"Mateusz\",\n\t\"lastName\": \"Kitlinski\",\n\t\"password\": \"1234\",\n\t\"location\": {\n\t\t\"lat\": 0.0,\n\t\t\"lng\": 0.0,\n\t\t\"name\": \"Center of the world\"\n\t}\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"rawModeData": "{\n\t\"email\": \"m.kitlinos@gmail.com\",\n\t\"password\": \"1234\"\n}"
+		}
+	]
+}

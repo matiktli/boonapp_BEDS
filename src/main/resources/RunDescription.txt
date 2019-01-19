@@ -1,0 +1,11 @@
+## DATABASE CREATION
+#1. CREATE DATABASE
+    -- create database boondb;
+#2. CREATE USER
+    -- create user boondb_admin;
+#3. ASSIGN USER TO DB
+    -- grant all on boondb.* to 'boondb_admin'@'localhost' identified by ‘password’;
+
+## insert test data: todo
+
+## clear tables: todo
