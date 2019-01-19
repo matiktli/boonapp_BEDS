@@ -4,19 +4,25 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		jcenter()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.3'
+		classpath 'com.github.rholder:gradle-one-jar:1.0.4'
 	}
 }
 
 plugins {
 	id 'net.ltgt.apt' version '0.10'
+	id 'com.github.johnrengelman.shadow' version '4.0.3'
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'gradle-one-jar'
 
 group = 'com.boon'
 version = '0.1.0_MVP_'
@@ -40,4 +46,38 @@ dependencies {
 	apt 'org.projectlombok:lombok:1.18.4'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+}
+jar {
+	manifest {
+		attributes(
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' '),
+				"Main-Class": 'com.boon.boonapp.Application'
+		)
+	}
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+
+}
+
+task awesomeFunJar(type: OneJar) {
+	mainClass = 'com.boon.boonapp.Application'
+	//archiveName = 'boonapp_MVP.jar'
+}
+
+springBoot {
+	mainClassName = 'com.boon.boonapp.Application'
+}
+
+bootJar {
+	mainClassName = 'com.boon.boonapp.Application'
+}
+
+task customFatJar(type: Jar) {
+	manifest {
+		attributes 'Main-Class': 'com.boon.boonapp.Application'
+	}
+	baseName = 'BoonApp'
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
 }
