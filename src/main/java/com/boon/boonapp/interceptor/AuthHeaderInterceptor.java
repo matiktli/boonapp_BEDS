@@ -4,6 +4,7 @@ import com.boon.boonapp.exception.AuthorizationException;
 import com.boon.boonapp.model.User;
 import com.boon.boonapp.security.AuthorizationUtil;
 import com.boon.boonapp.security.SecurityService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,7 @@ import java.util.Optional;
 import static com.boon.boonapp.controller.BoonServiceConstants.TOKEN_HEADER_NAME;
 
 @Component
+@Slf4j
 public class AuthHeaderInterceptor extends HandlerInterceptorAdapter {
 
     private final SecurityService securityService;
@@ -30,6 +32,7 @@ public class AuthHeaderInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Optional<String> authHeader = Optional.ofNullable(request.getHeader(TOKEN_HEADER_NAME));
         if (!authHeader.isPresent()) {
+            log.error("404 on URL: [{}]", request.getRequestURL().toString());
             throw new AuthorizationException("Token header not present");
         }
         User user = securityService.getUserFromToken(authHeader.get());
