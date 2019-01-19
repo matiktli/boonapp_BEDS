@@ -2,6 +2,7 @@ package com.boon.boonapp.service;
 
 import com.boon.boonapp.dao.NeedyRepository;
 import com.boon.boonapp.exception.NeedyNotFoundException;
+import com.boon.boonapp.exception.UserNotFoundException;
 import com.boon.boonapp.model.Location;
 import com.boon.boonapp.model.Needy;
 import com.boon.boonapp.model.NeedyType;
@@ -48,6 +49,16 @@ public class NeedyService {
     }
 
     public Needy save(Needy needy) {
+        needy.setAttachedUsers(needy.getAttachedUsers().stream()
+                .map(user -> {
+                    if (user.getId() != null) {
+                        return userService.getUserById(user.getId());
+                    } else if (user.getEmail() != null) {
+                        return userService.findUserByEmail(user.getEmail());
+                    } else {
+                        throw new UserNotFoundException("While creating needy users you must provide their emails or ids");
+                    }
+                }).collect(Collectors.toSet()));
         return needyRepository.save(needy);
     }
 

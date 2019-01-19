@@ -28,7 +28,7 @@ public class BoonServiceConstants {
     public static final String NEEDY_WITH_ID_URL = NEEDY_URL + "/{needyId}";
 
     public static final String HELP_URL = BASE_URL + "/help";
-    public static final String HELP_WITH_ID_URL = NEEDY_URL + "/{helpId}";
+    public static final String HELP_WITH_ID_URL = HELP_URL + "/{helpId}";
 
     public static final List<String> PATHS_OUT_OF_SEC = Lists.newArrayList(LOGIN_URL, LOGOUT_URL, REGISTER_URL, "/swagger-ui.html", "/v2/**", "/api/**", "/favicon.ico", "/swagger**");
 

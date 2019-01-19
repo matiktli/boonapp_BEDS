@@ -3,7 +3,10 @@ package com.boon.boonapp.service;
 import com.boon.boonapp.dao.HelpRepository;
 import com.boon.boonapp.dao.UserRepository;
 import com.boon.boonapp.exception.HelpNotFoundException;
+import com.boon.boonapp.exception.NeedyNotFoundException;
+import com.boon.boonapp.exception.UserNotFoundException;
 import com.boon.boonapp.model.Help;
+import com.boon.boonapp.model.Needy;
 import com.boon.boonapp.model.User;
 import io.micrometer.core.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +20,13 @@ public class HelpService {
 
     private final HelpRepository helpRepository;
     private final UserService userService;
+    private final NeedyService needyService;
 
     @Autowired
-    public HelpService(HelpRepository helpRepository, UserService userService) {
+    public HelpService(HelpRepository helpRepository, UserService userService, NeedyService needyService) {
         this.helpRepository = helpRepository;
         this.userService = userService;
+        this.needyService = needyService;
     }
 
     public Help createNewHelp(Help help, User initHelper) {
@@ -31,14 +36,21 @@ public class HelpService {
 
     public Help save(Help help) {
         help.setHelpers(help.getHelpers().stream()
-                .filter(user -> user.getId() != null || user.getEmail() != null)
                 .map(user -> {
                     if (user.getId() != null) {
                         return userService.getUserById(user.getId());
-                    } else {
+                    } else if (user.getEmail() != null) {
                         return userService.findUserByEmail(user.getEmail());
+                    } else {
+                        throw new UserNotFoundException("While creating help users you must provide their emails or ids");
                     }
                 }).collect(Collectors.toSet()));
+        Needy needy = help.getNeedy();
+        if (needy.getId() == null) {
+            throw new NeedyNotFoundException("While creating help you must provide Needy Id.");
+        }
+        needy = needyService.findNeedyById(needy.getId());
+        help.setNeedy(needy);
         return helpRepository.save(help);
     }
 

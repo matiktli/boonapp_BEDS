@@ -89,7 +89,7 @@ public class BoonBaseController implements BoonBaseService {
                                                             @RequestParam(name = "distance", required = false) Double distance,
                                                             @RequestParam(name = "type", required = false) NeedyType needyType,
                                                             @RequestParam(name = "count", required = false, defaultValue = "20") Integer count) {
-        List<Needy> foundNeedies = needyService.getAllNeediesInAreaAndType(Location.builder().build(), distance, needyType, count);
+        List<Needy> foundNeedies = needyService.getAllNeediesInAreaAndType(Location.builder().lat(lat).lng(lng).build(), distance, needyType, count);
         List<NeedyDTO> result = foundNeedies.stream().map(needyTransformer::toDto).collect(Collectors.toList());
         return ResponseEntity.ok(result);
     }
