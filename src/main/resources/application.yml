@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/boondb
+    url: jdbc:mysql://localhost:3306/boondb?leuseUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     password: password
     username: boondb_admin
     driver-class-name: com.mysql.jdbc.Driver
