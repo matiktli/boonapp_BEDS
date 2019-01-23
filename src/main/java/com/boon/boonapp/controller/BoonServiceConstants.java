@@ -1,6 +1,5 @@
 package com.boon.boonapp.controller;
 
-import com.boon.boonapp.domain.BaseDTO;
 import com.google.common.collect.Lists;
 import lombok.experimental.UtilityClass;
 
@@ -13,7 +12,7 @@ public class BoonServiceConstants {
 
     public static final Integer TOKEN_LENGTH = 30;
     public static final String TOKEN_HEADER_NAME = "TOKEN";
-    public static final Integer TOKEN_DEFAULT_DURATION_HOURS = 3;
+    public static final Integer TOKEN_DEFAULT_DURATION_HOURS = 48;
 
     // * URLs *
     public static final String BASE_URL = "/boon";
